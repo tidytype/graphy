@@ -1,0 +1,36 @@
+body {
+    --tt-text-base-size: 20px;
+    --tt-text-scale-factor: 1.25;
+    --tt-text-line-height: 1.5;
+    --tt-block-margin-height: calc(var(--tt-text-line-height) * 1em);
+    --tt-grid-size: calc(var(--tt-text-base-size) * var(--tt-text-line-height));
+    --tt-grid-color: #e7e7e7;
+    --tt-debug-bg-color: rgba(255,0,0,.075);
+    --tt-text-color:#171923;
+    --tt-bg-color: #f7f7f9;
+    --tt-alt-bg-color: #f2f3f4;
+    --tt-highlight-bg-color: #f2f232;
+    --tt-border-color: #e7e7e7;
+    --tt-quote-bg-color: #F2f2f2;
+    --tt-quote-text-color: var(--tt-text-color);
+  }
+  
+  .dark body{
+    --tt-text-color:#f7f8f9;
+    --tt-alt-bg-color: #232425;
+    --tt-bg-color: #121315;
+    --tt-highlight-bg-color: #f2f232;
+    --tt-border-color: #373737;
+    --tt-quote-bg-color: #484848;
+    --tt-quote-text-color: var(--tt-text-color);
+    --tt-grid-color: #434343;
+    --tt-debug-bg-color: rgba(255,0,0,.075);
+    --tt-text-color:#f7f8f9;
+    --tt-bg-color: #232425;
+    --tt-alt-bg-color: #131415;
+    --tt-highlight-bg-color: #f2f232;
+    --tt-border-color: #545454;
+    --tt-quote-bg-color: #000;
+    --tt-quote-text-color: var(--tt-text-color);
+  
+  }

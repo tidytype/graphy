@@ -1,0 +1,24 @@
+{
+  "name": "graphy",
+  "version": "1.0.0",
+  "description": "An open source library for making text legible and readable from digital screens 📱 to physical paper 📰",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "sass --watch style/base.scss dist/tidytype.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tidytype/base.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tidytype/base/issues"
+  },
+  "homepage": "https://github.com/tidytype/base#readme",
+  "devDependencies": {
+    "sass": "^1.35.2"
+  }
+}

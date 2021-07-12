@@ -1,0 +1,12 @@
+/*
+  Debug
+*/
+.debug * {
+    background-color: var(--tt-debug-bg-color);
+  }
+  .grid body{
+    background-size: var(--tt-grid-size) var(--tt-grid-size);
+    background-image:
+      linear-gradient(to right, var(--tt-grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--tt-grid-color) 1px, transparent 1px);
+  }

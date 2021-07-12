@@ -1,0 +1,186 @@
+/*
+  @tidytype/graphy
+  Authors: Eivind Ingebrigtsen & Vegard Bolstad
+*/
+
+/*
+  Variables
+*/
+@import "variables.scss";
+@import "devtools.scss";
+
+
+
+
+/*
+  Reset elements
+*/
+.tidytype *{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+
+
+
+.tidytype{
+  font-size: var(--tt-text-base-size);
+  line-height: var(--tt-text-line-height);
+  font-family: serif;
+  font-synthesis: none;
+  color: var(--tt-text-color);
+  counter-reset: 
+    figure 0 
+    reference 0
+    chapter 0;
+}
+
+/*
+  Basic principles
+  Line-height is 1.5 of base text size - all margins are aligned towards that.
+*/
+.tidytype{
+
+h1,h2,h3,h4{
+  font-family: sans-serif;
+  margin-top: calc(var(--tt-text-base-size) * 1.5);
+}
+h1{
+  font-size: calc(var(--tt-text-scale-factor) * 4rem);
+  letter-spacing: -0.025rem;
+}
+h2::before{
+  counter-increment: chapter;
+}
+h2{
+  font-size: calc(var(--tt-text-scale-factor) * 3rem);
+  letter-spacing: -0.0675rem;
+}
+h3{
+  font-size: calc(var(--tt-text-scale-factor) * 2rem);
+  letter-spacing: -0.03375rem;
+}
+h4{
+  font-size: var(--tt-text-scale-factor)rem;
+}
+
+h5, h6, b, strong, dt, th{
+  font-weight: 900;
+}
+
+p + p{
+  margin-top: 1.5em;
+}
+
+i, em, cite{
+  font-style: italic;
+}
+em{
+  background-color: var(--tt-alt-bg-color);
+}
+
+/*
+
+*/
+hr{
+  background: transparent;
+  height: var(--tt-block-margin-height);
+  margin: var(--tt-block-margin-height) 0;
+  box-sizing: border-box;
+  border-top: 1px solid var(--tt-quote-text-color);
+}
+
+figure::before{
+  counter-increment: figure;
+  position: absolute;
+  bottom: -1.5em;
+  left: 1.5em;
+  content: "Figure " counter(figure);
+  font-size: .5em;
+  font-family: monospace;
+}
+
+figure{
+  margin: 1.5em 0;
+  position: relative;
+}
+
+blockquote{
+  font-size: 1em;
+  padding: 1.5em 1.5em;
+  margin: 0 1.5em;
+  border-left: 2px solid var(--tt-border-color);
+
+}
+blockquote p{
+  font-size: inherit;
+}
+blockquote + figcaption{
+  text-align: right;
+}
+
+
+
+dd {
+  padding-left: 2em;
+}
+
+ul,ol,dl,table{
+  margin-top: 1.5em;
+}
+ul ul, ol ol{
+    margin-top: 0;
+    padding-left: 2em;
+}
+li{
+  line-height: 1.5em;
+  margin: 0;
+}
+
+.content{
+  margin: 0 auto;
+  padding: 1.5em;
+  max-width: 36em;
+}
+
+table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+thead, tfoot{
+  background-color: var(--tt-alt-bg-color);
+  text-align: left;
+}
+thead th{
+  border-top: 1px solid var(--tt-border-color)
+}
+thead th:first-child{
+  border-top-left-radius: 0.5rem;
+}
+thead th:last-child{
+  border-top-right-radius: 0.5rem;
+}
+tfoot th:first-child{
+  border-bottom-left-radius: 0.5rem;
+}
+tfoot th:last-child{
+  border-bottom-right-radius: 0.5rem;
+}
+tbody tr:nth-of-type(even){
+  background-color: var(--tt-alt-bg-color);
+}
+td,th{
+  border-left: 1px solid var(--tt-border-color);
+  border-bottom: 1px solid var(--tt-border-color);
+  padding: 0 .75em;
+  line-height: 1.5em;
+}
+td:last-child,
+th:last-child{
+  border-right: 1px solid var(--tt-border-color);
+}
+
+
+}
