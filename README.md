@@ -19,6 +19,7 @@ We want to create one set of definitions that will work across all platforms, di
 - Links & references
 - Attribution & abbreviation
 - Quotes & sources
+- Hello from Eivind
 - Figures and data
 
 ## 💁 Input from anywhere
