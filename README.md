@@ -19,3 +19,8 @@ We want to create one set of definitions that will work across all platforms, di
 - Links & references
 - Attribution & abbreviation
 - Quotes & sources
+- Figures and data
+
+## 💁 Input from anywhere
+- Markdown support
+

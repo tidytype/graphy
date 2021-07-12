@@ -4,6 +4,7 @@
 Nodejs and npm installed
 ```
 npm install -g sass
+npm install -g browser-sync
 ```
 
 ## Compiling CSS 

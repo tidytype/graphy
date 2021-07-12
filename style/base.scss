@@ -8,6 +8,11 @@
 */
 @import "variables.scss";
 @import "devtools.scss";
+@import "headers.scss";
+@import "figure.scss";
+@import "marks.scss";
+@import "inline-elements.scss";
+@import "example.scss";
 
 
 
@@ -30,55 +35,25 @@
   font-family: serif;
   font-synthesis: none;
   color: var(--tt-text-color);
-  counter-reset: 
-    figure 0 
+  counter-reset:
+    figure 0
     reference 0
-    chapter 0;
+    chapter 0
+    section 0
+    subsection 0;
 }
 
 /*
   Basic principles
-  Line-height is 1.5 of base text size - all margins are aligned towards that.
+
 */
 .tidytype{
 
-h1,h2,h3,h4{
-  font-family: sans-serif;
-  margin-top: calc(var(--tt-text-base-size) * 1.5);
-}
-h1{
-  font-size: calc(var(--tt-text-scale-factor) * 4rem);
-  letter-spacing: -0.025rem;
-}
-h2::before{
-  counter-increment: chapter;
-}
-h2{
-  font-size: calc(var(--tt-text-scale-factor) * 3rem);
-  letter-spacing: -0.0675rem;
-}
-h3{
-  font-size: calc(var(--tt-text-scale-factor) * 2rem);
-  letter-spacing: -0.03375rem;
-}
-h4{
-  font-size: var(--tt-text-scale-factor)rem;
-}
-
-h5, h6, b, strong, dt, th{
-  font-weight: 900;
-}
 
 p + p{
   margin-top: 1.5em;
 }
 
-i, em, cite{
-  font-style: italic;
-}
-em{
-  background-color: var(--tt-alt-bg-color);
-}
 
 /*
 
@@ -91,34 +66,6 @@ hr{
   border-top: 1px solid var(--tt-quote-text-color);
 }
 
-figure::before{
-  counter-increment: figure;
-  position: absolute;
-  bottom: -1.5em;
-  left: 1.5em;
-  content: "Figure " counter(figure);
-  font-size: .5em;
-  font-family: monospace;
-}
-
-figure{
-  margin: 1.5em 0;
-  position: relative;
-}
-
-blockquote{
-  font-size: 1em;
-  padding: 1.5em 1.5em;
-  margin: 0 1.5em;
-  border-left: 2px solid var(--tt-border-color);
-
-}
-blockquote p{
-  font-size: inherit;
-}
-blockquote + figcaption{
-  text-align: right;
-}
 
 
 

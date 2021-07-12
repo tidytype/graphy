@@ -1,0 +1,33 @@
+.tidytype{
+    h1,h2,h3,h4{
+        font-family: sans-serif;
+        margin-top: calc(var(--tt-text-base-size) * 1.5);
+    }
+    h1{
+        font-size: calc(var(--tt-text-scale-factor) * 4rem);
+        letter-spacing: -0.025rem;
+    }
+    h2{
+        font-size: calc(var(--tt-text-scale-factor) * 3rem);
+        letter-spacing: -0.0675rem;
+        counter-increment: chapter;
+        counter-reset: section;
+    }
+    h2::before{
+        content: "Chapter " counter(chapter);
+    }
+    h3{
+        font-size: calc(var(--tt-text-scale-factor) * 2rem);
+        letter-spacing: -0.03375rem;
+        counter-increment: section;
+        counter-reset: subsection;
+    }
+    h4{
+        font-size: var(--tt-text-scale-factor)rem;
+        counter-increment: subsection;
+    }
+    
+    h5, h6{
+        font-weight: 900;
+    }
+}

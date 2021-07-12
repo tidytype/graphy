@@ -1,0 +1,42 @@
+.tidytype{
+    mark{
+        border-radius: .25rem;
+        font-family: sans-serif;
+        font-size: .75em;
+        padding: .125em .25rem;
+        &.light{
+            background: #efefef;
+        }
+        &.dark{
+            background-color: #323232;
+            @include lightText();
+        }
+        &.green{
+            background-color: var(--tt-color-green);
+            @include lightText();
+        }
+        &.blue{
+            background-color: var(--tt-color-blue);
+            @include lightText();
+        }
+        &.orange{
+            background-color: var(--tt-color-orange);
+            @include lightText();
+        }
+        &.pink{
+            background-color: var(--tt-color-pink);
+            @include lightText();
+        }
+        &.purple{
+            background-color: var(--tt-color-purple);
+            @include lightText();
+        }
+        &.red{
+            background-color: var(--tt-color-red);
+            @include lightText();
+        }
+        &.yellow{
+            background-color: var(--tt-color-yellow);
+        }
+    }
+}

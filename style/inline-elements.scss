@@ -1,0 +1,15 @@
+.tidytype{
+    b, strong, dt, th{
+        font-weight: 900;
+    }
+    i, em, cite{
+        font-style: italic;
+    }
+    em{
+        background-color: var(--tt-alt-bg-color);
+    }
+    del{
+        color: rgba(0,0,0,.45);
+        text-decoration-color: rgba(0,0,0,.75);
+    }
+}

@@ -1,0 +1,34 @@
+.tidytype{
+    
+    
+    figure::before{
+        counter-increment: figure;
+        position: absolute;
+        bottom: -1.5em;
+        left: 1.5em;
+        content: "Figure " counter(figure);
+        font-size: .5em;
+        font-family: monospace;
+    }
+    
+    figure{
+        margin: 1.5em 0;
+        position: relative;
+    }
+    
+    blockquote{
+        font-size: 1em;
+        padding: 1.5em 1.5em;
+        margin: 0 1.5em;
+        border-left: 2px solid var(--tt-border-color);
+        
+    }
+    blockquote p{
+        font-size: inherit;
+    }
+    blockquote + figcaption{
+        text-align: right;
+        font-size: .75em;
+    }
+    
+}
