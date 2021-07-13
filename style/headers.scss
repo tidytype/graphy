@@ -47,8 +47,8 @@
         }
     }
     h1,h2,h3,h4,h5,h6{
-        line-height: 1;
-        border-bottom: 1px solid red;
+        line-height: .99;
+        /*background-color: rgba($color: #000000, $alpha: .3);*/
         font-family: sans-serif;
         margin-bottom: calc(var(--tt-grid-size));
         margin-top: calc((var(--tt-grid-size)*2)-height);
@@ -60,27 +60,29 @@
         margin-top: calc(var(--tt-text-base-size) * 1.5);     
     }
     h1{
-        font-size: calc(var(--tt-text-scale-factor) * 4rem);
+        font-size: clamp(10vmin, 15vw, 15vmin);
         letter-spacing: -0.025rem;
 
     }
     h2{
-        font-size: calc(var(--tt-text-scale-factor) * 3rem);
+        font-size: 8vw;
+        font-size: clamp(8vmin, 10vw, 12vmin);
         letter-spacing: -0.0675rem;
 
     }
     h3{
-        font-size: calc(var(--tt-text-scale-factor) * 2rem);
+        font-size: clamp(6vmin, 7.5vw, 9vmin);
         letter-spacing: -0.03375rem;
     }
     h4{
-        font-size: var(--tt-text-scale-factor)rem;
+        font-size: clamp(4vmin, 5vw, 6vmin);
+        
     }
     
     h5, h6{
         margin-top: calc(var(--tt-grid-size)*2);
         font-weight: 900;
-        font-size: var(--tt-text-base-size);
+        font-size: clamp(min(var(--tt-text-base-size)), 4vw, 5vmin);
     }
     h6 {
         font-style: italic;
