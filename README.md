@@ -11,12 +11,12 @@ We want to create one set of definitions that will work across all platforms, di
 - Light vs. dark mode
 - Landscape vs. portrait
 - Pages, breaks & spreads
+- Screen vs. print
 
 ### 🍱 Rich as in html
-- Bold & emphasis
-- Deletion & strike-troughs
-- Marks & highlights
-- Links & references
+- Bold & emphasis<br>Like putting **focus on** something that is _emphasized_ or _italized_.
+- Deletion & strike-troughs  <br> <del>This has been deleted</del> and <s>this shouldn't be here</s>
+- Marks & highlights <br><mark class="green">Green</mark> <mark class="blue">Blue</mark> <mark class="orange">Orange</mark> <mark class="pink">Pink</mark> <mark class="purple">Purple</mark> <mark class="red">Red</mark> <mark class="yellow">Yellow</mark>*   Links & references- Links & references
 - Attribution & abbreviation
 - Quotes & sources
 - Figures, tables, links and illustrations integrated easily

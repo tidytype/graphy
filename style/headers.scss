@@ -1,33 +1,89 @@
 .tidytype{
-    h1,h2,h3,h4{
+    margin: calc(1*var(--tt-grid-size));
+    &.chapters,&.sections,&.subsections{
+        h2,h3,h4,h5,h6{
+            margin-top:0;
+            &::before{
+                display: block;
+                font-size: 1.25rem;
+                line-height: calc(var(--tt-grid-size) - font-size);
+                border-bottom: 1px solid var(--tt-border-color);
+                margin-bottom: calc(var(--tt-grid-size) / 2);
+                margin-top: calc(var(--tt-grid-size)*2);
+                padding-bottom: calc(var(--tt-grid-size) / 4);
+                box-sizing: border-box;
+            }
+        }
+    }
+    &.chapters{
+        h2{
+            counter-increment: chapter;
+            counter-reset: section;
+    
+            &::before{
+                content: "Chapter " counter(chapter);
+                border-bottom: 1px solid var(--tt-border-color);
+                font-size: 1.5rem;
+            }
+        }
+    }
+    &.sections{
+        h3{
+            counter-increment: section;
+            counter-reset: subsection;
+            &::before{
+                content: "Section " counter(chapter) '.' counter(section);
+            }
+    
+        }
+    }
+    &.subsections{
+        h4{
+            counter-increment: subsection;
+            &::before{
+                content: "Subsection " counter(chapter) '.' counter(section) '.' counter(subsection);
+            }
+    
+        }
+    }
+    h1,h2,h3,h4,h5,h6{
+        line-height: 1;
+        border-bottom: 1px solid red;
         font-family: sans-serif;
-        margin-top: calc(var(--tt-text-base-size) * 1.5);
+        margin-bottom: calc(var(--tt-grid-size));
+        margin-top: calc((var(--tt-grid-size)*2)-height);
+        padding-bottom: calc(var(--tt-grid-size) - height - margin-top);
+        box-sizing: border-box;
+
+
+
+        margin-top: calc(var(--tt-text-base-size) * 1.5);     
     }
     h1{
         font-size: calc(var(--tt-text-scale-factor) * 4rem);
         letter-spacing: -0.025rem;
+
     }
     h2{
         font-size: calc(var(--tt-text-scale-factor) * 3rem);
         letter-spacing: -0.0675rem;
-        counter-increment: chapter;
-        counter-reset: section;
-    }
-    h2::before{
-        content: "Chapter " counter(chapter);
+
     }
     h3{
         font-size: calc(var(--tt-text-scale-factor) * 2rem);
         letter-spacing: -0.03375rem;
-        counter-increment: section;
-        counter-reset: subsection;
     }
     h4{
         font-size: var(--tt-text-scale-factor)rem;
-        counter-increment: subsection;
     }
     
     h5, h6{
+        margin-top: calc(var(--tt-grid-size)*2);
         font-weight: 900;
+        font-size: var(--tt-text-base-size);
+    }
+    h6 {
+        font-style: italic;
+        font-weight: 400;
     }
 }
