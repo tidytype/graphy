@@ -21,7 +21,7 @@ We want to create one set of definitions that will work across all platforms, di
 - Quotes & sources
 - Figures, tables, links and illustrations integrated easily
 
-### Structured texts to structured layouts
+### 💯 Structured texts to structured layouts
 - Tidytype's typographic library ensures consistent readability across platforms. (Under development).
 - Responsive grids keep content in place, while smart styles promote relaxed reading, from skimming to thorough reading
 - Playful navigation through long content
@@ -29,7 +29,7 @@ We want to create one set of definitions that will work across all platforms, di
 - (Optional) Pagination to break the scroll-habit
 – Margins that pleases the eyes (and neck)
 
-## Help us help you read!
+## 😪 Help us help you read!
 - Our development aims to share our research and code through an open source initiative (governed under an MIT licence), so that readability can again take centre stage online and elsewhere.
 - Designers, developers, publishers and readers alike: With your help, we're hoping to design, develop and share this stripped-down way of displaying type online, intellegently and legibly.
 - Help us both combine existing and develop new solutions to this decade-old problem.
