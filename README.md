@@ -37,4 +37,8 @@ We want to create one set of definitions that will work across all platforms, di
 
 ## 💁 Input from anywhere
 - Markdown support
+- Tools and methodology for input of rich and structured data, and assuring it's quality and integrity.
+
+## 💁 Output? Sure!
+- Tidytype is a headless toolkit enabeling easy output and integration.
 
