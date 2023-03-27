@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Product</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="data-container"></div>
+    <script>
+      // Fetch and parse the data
+      fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+          // Select the container element
+          const container = document.getElementById('data-container');
+          // Loop through the data and generate HTML elements
+          data.forEach(item => {
+            const element = document.createElement('div');
+            element.innerHTML = `<h2>${item.title}</h2><p>${item.description}</p>`;
+            container.appendChild(element);
+          });
+        });
+    </script>
+  </body>
+</html>
