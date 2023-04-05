@@ -1,0 +1,52 @@
+// Headers
+
+.tidytype {
+  margin: $baseline;
+  column-width: 20em;
+  column-gap: $baseline;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  &.chapters, &.sections, &.subsections {
+    h2, h3, h4, h5, h6 {
+      margin-top: 0;
+      &::before {
+        display: block;
+      }
+    }
+  }
+  
+  &.chapters {
+    h2 {
+      counter-increment: chapter;
+      counter-reset: section;
+      &::before {
+        content: "Chapter " counter(chapter);
+        border-bottom: 1px solid black;
+        font-size: modular-scale(1);
+      }
+    }
+  }
+  
+  &.sections {
+    h3 {
+      counter-increment: section;
+      counter-reset: subsection;
+      &::before {
+        content: "Section " counter(chapter) '.' counter(section);
+        font-size: modular-scale(0);
+      }
+    }
+  }
+  
+  &.subsections {
+    h4 {
+      counter-increment: subsection;
+      &::before {
+        content: "Subsection " counter(chapter) '.' counter(section) '.' counter(subsection);
+        font-size: modular-scale(-1);
+      }
+    }
+  }
+}

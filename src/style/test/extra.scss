@@ -1,0 +1,111 @@
+/* Header Styles */
+.tidytype {
+    margin: $baseline;
+    column-width: 20em;
+    column-gap: $baseline;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    &.chapters, &.sections, &.subsections {
+      h2, h3, h4, h5, h6 {
+        margin-top: 0;
+        &::before {
+          display: block;
+        }
+      }
+    }
+    
+    &.chapters {
+      h2 {
+        counter-increment: chapter;
+        counter-reset: section;
+        &::before {
+          content: "Chapter " counter(chapter);
+          border-bottom: 1px solid black;
+          font-size: modular-scale(1);
+        }
+      }
+    }
+    
+    &.sections {
+      h3 {
+        counter-increment: section;
+        counter-reset: subsection;
+        &::before {
+          content: "Section " counter(chapter) '.' counter(section);
+          font-size: modular-scale(0);
+        }
+      }
+    }
+    
+    &.subsections {
+      h4 {
+        counter-increment: subsection;
+        &::before {
+          content: "Subsection " counter(chapter) '.' counter(section) '.' counter(subsection);
+          font-size: modular-scale(-1);
+        }
+      }
+    }
+  
+    /* Custom Styles */
+    .tidytype {
+      p {
+        font-size: modular-scale(0);
+        line-height: $baseline * 1.5;
+        margin-top: $baseline;
+        margin-bottom: $baseline;
+      }
+  
+      /* Margins and Columns */
+      &__main {
+        max-width: 65ch;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1em;
+        padding-right: 1em;
+        @media (min-width: 40em) {
+          padding-left: 0;
+          padding-right: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          > * {
+            width: calc(50% - #{$baseline / 2});
+          }
+        }
+      }
+    }
+  }
+  
+  .tidytype {
+    margin: 0 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .content.tidytype {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 40px;
+    margin: 0 50px;
+  }
+  
+  .tidytype__left-column, .tidytype__right-column {
+    margin: 0 16px;
+    width: 48%;
+  }  
+  
+  .tidytype h1,
+  .tidytype h2,
+  .tidytype h3,
+  .tidytype h4,
+  .tidytype h5,
+  .tidytype h6 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }

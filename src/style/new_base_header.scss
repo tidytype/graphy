@@ -1,0 +1,216 @@
+// Variables
+$baseline: 2rem;
+$scaling-factors: (1.2, 1.25, 1.33, 1.5, 1.67, 1.83, 2);
+
+// Functions
+@function modular-scale($step) {
+  $factor: nth($scaling-factors, $step);
+  @return $baseline * $factor;
+}
+
+@function ideal-margin($font-size) {
+  $ideal-characters: 65;
+  $ideal-width: $ideal-characters * $font-size;
+  $available-width: 100% - (2 * $baseline); // Assumes 1rem padding on both sides
+
+  @if $ideal-width >= $available-width {
+    @return 0;
+  } @else {
+    $margin: ($available-width - $ideal-width) / 2;
+    @return $margin;
+  }
+}
+
+@function ideal-columns($font-size) {
+  $ideal-characters: 65;
+  $available-width: 100% - (2 * $baseline); // Assumes 1rem padding on both sides
+  $ideal-width: $ideal-characters * $font-size;
+
+  @return floor($available-width / $ideal-width);
+}
+
+// Typography styles
+body {
+  font-size: $baseline;
+  line-height: $baseline * 1.5;
+  font-family: serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-top: $baseline * 2;
+  margin-bottom: $baseline;
+  line-height: $baseline * 1.5;
+  font-family: serif;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-size: modular-scale(4);
+  margin-left: ideal-margin(modular-scale(4));
+  margin-right: ideal-margin(modular-scale(4));
+  column-count: ideal-columns(modular-scale(4));
+}
+
+h2 {
+  font-size: modular-scale(3);
+  margin-left: ideal-margin(modular-scale(3));
+  margin-right: ideal-margin(modular-scale(3));
+  column-count: ideal-columns(modular-scale(3));
+}
+
+h3 {
+  font-size: modular-scale(2);
+  margin-left: ideal-margin(modular-scale(2));
+  margin-right: ideal-margin(modular-scale(2));
+  column-count: ideal-columns(modular-scale(2));
+}
+
+h4 {
+  font-size: modular-scale(1);
+  margin-left: ideal-margin(modular-scale(1));
+  margin-right: ideal-margin(modular-scale(1));
+  column-count: ideal-columns(modular-scale(1));
+}
+
+h5 {
+  font-size: modular-scale(0);
+  margin-left: ideal-margin(modular-scale(0));
+  margin-right: ideal-margin(modular-scale(0));
+  column-count: ideal-columns(modular-scale(0));
+}
+
+h6 {
+  font-size: modular-scale(-1);
+  font-style: italic;
+  margin-left: ideal-margin(modular-scale(-1));
+  margin-right: ideal-margin(modular-scale(-1));
+  column-count: ideal-columns(modular-scale(-1));
+}
+
+/* Header Styles */
+.tidytype {
+    margin: $baseline;
+    column-width: 20em;
+    column-gap: $baseline;
+    
+    &.chapters, &.sections, &.subsections {
+      h2, h3, h4, h5, h6 {
+        margin-top: 0;
+        &::before {
+          display: block;
+        }
+      }
+    }
+    
+    &.chapters {
+      h2 {
+        counter-increment: chapter;
+        counter-reset: section;
+        &::before {
+          content: "Chapter " counter(chapter);
+          border-bottom: 1px solid black;
+          font-size: modular-scale(1);
+        }
+      }
+    }
+    
+    &.sections {
+      h3 {
+        counter-increment: section;
+        counter-reset: subsection;
+        &::before {
+          content: "Section " counter(chapter) '.' counter(section);
+          font-size: modular-scale(0);
+        }
+      }
+    }
+    
+    &.subsections {
+      h4 {
+        counter-increment: subsection;
+        &::before {
+          content: "Subsection " counter(chapter) '.' counter(section) '.' counter(subsection);
+          font-size: modular-scale(-1);
+        }
+      }
+    }
+  
+    /* Custom Styles */
+    .tidytype {
+      p {
+        font-size: modular-scale(0);
+        line-height: $baseline * 1.5;
+        margin-top: $baseline;
+        margin-bottom: $baseline;
+      }
+  
+      /* Margins and Columns */
+      &__main {
+        max-width: 65ch;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1em;
+        padding-right: 1em;
+        @media (min-width: 40em) {
+          padding-left: 0;
+          padding-right: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          > * {
+            width: calc(50% - #{$baseline / 2});
+          }
+        }
+      }
+    }
+  }
+  
+  .tidytype {
+    
+  }
+  .content.tidytype {
+    margin: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 40px;
+    margin: 0 50px;
+  }
+  
+  .tidytype__left-column, .tidytype__right-column {
+    margin: 0 16px;
+    width: 48%;
+  }  
+  
+  .tidytype h1,
+  .tidytype h2,
+  .tidytype h3,
+  .tidytype h4,
+  .tidytype h5,
+  .tidytype h6 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  .tidytype h1 {
+  font-size: clamp(36px, 8vw, 72px);
+}
+
+.tidytype h2 {
+  font-size: clamp(24px, 6vw, 48px);
+}
+
+.tidytype h3 {
+  font-size: clamp(18px, 4vw, 36px);
+}
+
+.tidytype h4 {
+  font-size: clamp(16px, 3vw, 32px);
+}
+
+.tidytype h5 {
+  font-size: clamp(14px, 2vw, 28px);
+}
+
+.tidytype h6 {
+  font-size: clamp(12px, 1vw, 24px);
+}

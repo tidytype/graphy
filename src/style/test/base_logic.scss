@@ -1,0 +1,46 @@
+// Variables
+$baseline: 2rem;
+$scaling-factors: (1.2, 1.25, 1.33, 1.5, 1.67, 1.83, 2);
+
+// Functions
+@function modular-scale($step) {
+  $factor: nth($scaling-factors, $step);
+  @return $baseline * $factor;
+}
+
+@function ideal-margin($font-size) {
+  $ideal-characters: 65;
+  $ideal-width: $ideal-characters * $font-size;
+  $available-width: 100% - (2 * $baseline); // Assumes 1rem padding on both sides
+
+  @if $ideal-width >= $available-width {
+    @return 0;
+  } @else {
+    $margin: ($available-width - $ideal-width) / 2;
+    @return $margin;
+  }
+}
+
+@function ideal-columns($font-size) {
+  $ideal-characters: 65;
+  $available-width: 100% - (2 * $baseline); // Assumes 1rem padding on both sides
+  $ideal-width: $ideal-characters * $font-size;
+
+  @return floor($available-width / $ideal-width);
+}
+
+// Typography styles
+body {
+  font-size: $baseline;
+  line-height: $baseline * 1.5;
+  font-family: serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-top: $baseline * 2;
+  margin-bottom: $baseline;
+  line-height: $baseline * 1.5;
+  font-family: serif;
+  text-rendering: optimizeLegibility;
+}

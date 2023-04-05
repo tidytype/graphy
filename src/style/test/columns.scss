@@ -1,0 +1,151 @@
+
+    /* Custom Styles */
+    .tidytype {
+      p {
+        font-size: modular-scale(0);
+        line-height: $baseline * 1.5;
+        margin-top: $baseline;
+        margin-bottom: $baseline;
+      }
+  
+      /* Margins and Columns */
+      &__main {
+        max-width: 65ch;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1em;
+        padding-right: 1em;
+        @media (min-width: 40em) {
+          padding-left: 0;
+          padding-right: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          > * {
+            width: calc(50% - #{$baseline / 2});
+          }
+        }
+      }
+    }
+  }
+  
+  .tidytype {
+    margin: 0 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  .content.tidytype {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 40px;
+    margin: 0 50px;
+  }
+  
+  .tidytype__left-column, .tidytype__right-column {
+    margin: 0 16px;
+    width: 48%;
+  }  
+  
+  .tidytype h1,
+  .tidytype h2,
+  .tidytype h3,
+  .tidytype h4,
+  .tidytype h5,
+  .tidytype h6 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    
+  }
+  .tidytype h1 {
+    font-size: clamp(36px, 8vw, 72px);
+    page-break-before: always;
+    
+  }
+  
+  .tidytype h2 {
+    font-size: clamp(24px, 6vw, 48px);
+  }
+  
+  .tidytype h3 {
+    font-size: clamp(18px, 4vw, 36px);
+  }
+  
+  .tidytype h4 {
+    font-size: clamp(16px, 3vw, 32px);
+  }
+  
+  .tidytype h5 {
+    font-size: clamp(14px, 2vw, 28px);
+  }
+  
+  .tidytype h6 {
+    font-size: clamp(12px, 1vw, 24px);
+  }
+  .tidytype__main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 2%;
+    margin: 0 10%;
+  }
+  
+  .tidytype__main > * {
+    grid-column: span 12;
+  }
+  
+  .tidytype__main h1,
+  .tidytype__main h2,
+  .tidytype__main h3,
+  .tidytype__main h4,
+  .tidytype__main h5,
+  .tidytype__main h6 {
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+    line-height: 1.5;
+    font-size: clamp(2.5rem, 2.5rem + 2vw, 4rem);
+    font-weight: bold;
+    color: #222;
+    text-align: center;
+  }
+  
+  @media (min-width: 480px) {
+    .tidytype__main {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      margin: 0 5%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .tidytype__main {
+      margin: 0 15%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .tidytype__main {
+      margin: 0 20%;
+    }
+  }
+  .tidytype {
+  column-count: 3;
+  column-gap: 2rem;
+  column-rule: 1px solid #ddd;
+  padding: 2rem;
+
+  /* Set min-height of columns to be 100% height of container */
+  &__main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    min-height: 100%;
+    /* set margin equal to the padding to avoid overlap*/
+    margin: 2rem;
+  }
+
+  .tidytype__left-column,
+  .tidytype__right-column {
+    width: calc(33.3333% - 2rem); /* 3 columns with 2rem gap */
+    min-height: 100%;
+    margin: 0 1rem; /* set a margin to avoid overlap */
+  }
+}

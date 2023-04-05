@@ -1,3 +1,102 @@
+.tidytype {
+  margin: calc(1 * var(--tt-grid-size));
+
+  &.chapters,
+  &.sections,
+  &.subsections {
+    h2, h3, h4, h5, h6 {
+      margin-top: 0;
+
+      &::before {
+        display: block;
+        font-size: 1.25rem;
+        line-height: calc(var(--tt-grid-size) - font-size);
+        border-bottom: 1px solid var(--tt-border-color);
+        margin-bottom: calc(var(--tt-grid-size) / 2);
+        margin-top: calc(var(--tt-grid-size) * 2);
+        padding-bottom: calc(var(--tt-grid-size) / 4);
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  &.chapters {
+    h2 {
+      counter-increment: chapter;
+      counter-reset: section;
+
+      &::before {
+        content: "Chapter " counter(chapter);
+        border-bottom: 1px solid var(--tt-border-color);
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &.sections {
+    h3 {
+      counter-increment: section;
+      counter-reset: subsection;
+
+      &::before {
+        content: "Section " counter(chapter) '.' counter(section);
+      }
+    }
+  }
+
+  &.subsections {
+    h4 {
+      counter-increment: subsection;
+
+      &::before {
+        content: "Subsection " counter(chapter) '.' counter(section) '.' counter(subsection);
+      }
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: sans-serif;
+    line-height: 1;
+    margin-bottom: calc(var(--tt-grid-size));
+    padding-bottom: calc(var(--tt-grid-size) / 4);
+    box-sizing: border-box;
+
+    &:not(:first-child) {
+      margin-top: calc(var(--tt-grid-size) * 2);
+    }
+  }
+
+  h1 {
+    font-size: clamp(10vmin, 15vw, 15vmin);
+    letter-spacing: -0.025rem;
+  }
+
+  h2 {
+    font-size: clamp(8vmin, 10vw, 12vmin);
+    letter-spacing: -0.0675rem;
+  }
+
+  h3 {
+    font-size: clamp(6vmin, 7.5vw, 9vmin);
+    letter-spacing: -0.03375rem;
+  }
+
+  h4 {
+    font-size: clamp(4vmin, 5vw, 6vmin);
+  }
+
+  h5, h6 {
+    font-weight: 900;
+    font-size: clamp(min(var(--tt-text-base-size)), 4vw, 5vmin);
+  }
+
+  h6 {
+    font-style: italic;
+    font-weight: 400;
+  }
+}
+
+/* Old code:
 .tidytype{
     margin: calc(1*var(--tt-grid-size));
     &.chapters,&.sections,&.subsections{
@@ -89,3 +188,4 @@
         font-weight: 400;
     }
 }
+*/

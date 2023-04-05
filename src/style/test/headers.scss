@@ -1,0 +1,100 @@
+h1 {
+  font-size: modular-scale(4);
+  margin-left: ideal-margin(modular-scale(4));
+  margin-right: ideal-margin(modular-scale(4));
+  column-count: ideal-columns(modular-scale(4));
+}
+
+h2 {
+  font-size: modular-scale(3);
+  margin-left: ideal-margin(modular-scale(3));
+  margin-right: ideal-margin(modular-scale(3));
+  column-count: ideal-columns(modular-scale(3));
+}
+
+h3 {
+  font-size: modular-scale(2);
+  margin-left: ideal-margin(modular-scale(2));
+  margin-right: ideal-margin(modular-scale(2));
+  column-count: ideal-columns(modular-scale(2));
+}
+
+h4 {
+  font-size: modular-scale(1);
+  margin-left: ideal-margin(modular-scale(1));
+  margin-right: ideal-margin(modular-scale(1));
+  column-count: ideal-columns(modular-scale(1));
+}
+
+h5 {
+  font-size: modular-scale(0);
+  margin-left: ideal-margin(modular-scale(0));
+  margin-right: ideal-margin(modular-scale(0));
+  column-count: ideal-columns(modular-scale(0));
+}
+
+h6 {
+  font-size: modular-scale(-1);
+  font-style: italic;
+  margin-left: ideal-margin(modular-scale(-1));
+  margin-right: ideal-margin(modular-scale(-1));
+  column-count: ideal-columns(modular-scale(-1));
+}
+
+/* Header Styles */
+.tidytype {
+    margin: $baseline;
+    column-width: 20em;
+    column-gap: $baseline;
+    
+    &.chapters, &.sections, &.subsections {
+      h2, h3, h4, h5, h6 {
+        margin-top: 0;
+        &::before {
+          display: block;
+        }
+      }
+    }
+    
+    &.chapters {
+      h2 {
+        counter-increment: chapter;
+        counter-reset: section;
+        &::before {
+          content: "Chapter " counter(chapter);
+          border-bottom: 1px solid black;
+          font-size: modular-scale(1);
+        }
+      }
+    }
+    
+    &.sections {
+      h3 {
+        counter-increment: section;
+        counter-reset: subsection;
+        &::before {
+          content: "Section " counter(chapter) '.' counter(section);
+          font-size: modular-scale(0);
+        }
+      }
+    }
+    
+    &.subsections {
+      h4 {
+        counter-increment: subsection;
+        &::before {
+          content: "Subsection " counter(chapter) '.' counter(section) '.' counter(subsection);
+          font-size: modular-scale(-1);
+        }
+      }
+    }
+    h1::before,
+    h2::before,
+    h3::before,
+    h4::before,
+    h5::before,
+    h6::before {
+      content: "";
+      display: inline-block;
+      height: $baseline;
+    }
